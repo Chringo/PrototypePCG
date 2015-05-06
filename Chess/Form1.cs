@@ -11,7 +11,6 @@ namespace BasicDrawTiles
 {
     public partial class Form1 : Form
     {
-        //int amount = 32;// Number of tiles
         int size = 15;// Graphical size of tiles
         bool greyscale = false;
 
@@ -20,9 +19,7 @@ namespace BasicDrawTiles
         GameBoard gameboard;// Logic handler
         public Form1()
         {
-            //gameboard = new GameBoard(amount, size);
             gameboard = new GameBoard(size);
-            //int sumBuffer = (gameboard.Quads * size) + 1;  // For allocating memory, +1 is an offset
             int height = (gameboard.Quads * size) + 1;
             int width = (gameboard.Quads * gameboard.Chunks * size) + 1;
 
@@ -43,12 +40,6 @@ namespace BasicDrawTiles
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            //switch (e.Button)
-            //{
-            //    case MouseButtons.Left:
-            //        gameboard.movePiece(e);
-            //        break;
-            //}
             gameboard.mouseAction(e);
             Invalidate();
         }
@@ -98,18 +89,6 @@ namespace BasicDrawTiles
             else if (e.KeyChar == '5')
             {
                 gameboard = new GameBoard(size, 5);
-                gameboard.colorMap(greyscale);
-                this.Invalidate();
-            }
-            else if (e.KeyChar == '6')
-            {
-                gameboard = new GameBoard(size, 9);
-                gameboard.colorMap(greyscale);
-                this.Invalidate();
-            }
-            else if (e.KeyChar == '7')
-            {
-                gameboard = new GameBoard(size, 7);
                 gameboard.colorMap(greyscale);
                 this.Invalidate();
             }

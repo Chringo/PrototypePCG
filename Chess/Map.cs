@@ -14,8 +14,6 @@ namespace BasicDrawTiles
     /// </summary>
     class Map
     {
-        //public Tile[,] tile;    // Source map
-        //public int gSize;
         public Tile[,] tiles;   // Layers
 
         // Diamond-Square
@@ -27,7 +25,6 @@ namespace BasicDrawTiles
             get
             {
                 return r.NextDouble();
-                //return 1.0;
             }
         }
         private int Chunks { get; set; }
@@ -208,7 +205,6 @@ namespace BasicDrawTiles
                         if (w == 0) // Due to modulus-usage
                         {
                             ds[h, Size] = avg;
-                            //ds[h, Size * Chunks] = avg;// Hack... //Solved with diamond value offset +1 in for-loop
                         }
                     }
                 }//__DIAMOND_END__//
@@ -281,7 +277,6 @@ namespace BasicDrawTiles
                             if (w == 0) // Due to modulus-usage
                             {
                                 ds[h, Size + (Size * c)] = avg;
-                                //ds[h, Size * Chunks] = avg;// Hack... //Solved with diamond value offset +1 in for-loop
                             }
                         }
                     }//__DIAMOND_END__//
