@@ -73,3 +73,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+Chess/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Chess/obj/x86/Debug/BasicDrawTiles.csproj.FileListAbsolute.txt
