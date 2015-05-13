@@ -101,10 +101,10 @@ namespace BasicDrawTiles
 
         }
 
-        public Map(int powerSize, int nrOfChunks)
+        public Map(int exponent, int nrOfChunks)
         {
             // Initiate map
-            this.Size = (int)(Math.Pow(2, powerSize)) + 1;// +1 gives the map a mid-point
+            this.Size = (pow(2, exponent) + 1);// +1 gives the map a mid-point
             Chunks = nrOfChunks;
             Size--;
             tiles = new Tile[Size, Size * Chunks];// 32x32, 16x16, etc
@@ -320,6 +320,23 @@ namespace BasicDrawTiles
             }
 
             return redo;
+        }
+        private int pow(int power, int exponent)
+        {
+	        int b = 1;
+	        if (exponent > 0)
+	        {
+		        b = 2;
+		        for (int i = 1; i < exponent; i++)
+		        {
+                    b *= power;
+		        }
+	        }
+	        else
+	        {
+		        b = 1;
+	        }
+	        return b;
         }
     }
 }
