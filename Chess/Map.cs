@@ -124,11 +124,7 @@ namespace BasicDrawTiles
             {
                 for (int w = 0; w < (Size * Chunks); w++)
                 {
-                    avg = ds[h, w] +
-                          ds[h + 1, w] +
-                          ds[h, w + 1] +
-                          ds[h + 1, w + 1];
-                    avg /= 4;
+                    avg = average(h, w, 1);
 
                     tiles[h, w] = new Tile(avg);
 
@@ -169,12 +165,7 @@ namespace BasicDrawTiles
                 {
                     for (int w = 0; w < (Size * Chunks); w += i)
                     {
-                        // calculate average of existing corners
-                        avg = ds[h, w] +// top left
-                              ds[h + i, w] +// top right
-                              ds[h, w + i] +// bot left
-                              ds[h + i, w + i];// bot right
-                        avg /= 4.0;
+                        avg = average(h, w, i);
 
                         // center is average plus random offset
                         ds[h + halfI, w + halfI] = avg + (Rand * 2 * off) - off;
@@ -241,12 +232,7 @@ namespace BasicDrawTiles
                     {
                         for (int w = 0; w < Size; w += i)
                         {
-                            // calculate average of existing corners
-                            avg = ds[h, w + (Size * c)] +// top left
-                                  ds[h + i, w + (Size * c)] +// top right
-                                  ds[h, w + i + (Size * c)] +// bot left
-                                  ds[h + i, w + i + (Size * c)];// bot right
-                            avg /= 4.0;
+                            avg = average(h, w, i);
 
                             // center is average plus random offset
                             ds[h + halfI, w + halfI + (Size * c)] = avg + (Rand * 2 * off) - off;
@@ -337,6 +323,17 @@ namespace BasicDrawTiles
 		        b = 1;
 	        }
 	        return b;
+        }
+        private double average(int h, int w, int i)
+        {
+            // calculate average of existing corners
+            double avg = ds[h, w] +// top left
+                  ds[h + i, w] +// top right
+                  ds[h, w + i] +// bot left
+                  ds[h + i, w + i];// bot right
+            avg /= 4.0;
+
+            return avg;
         }
     }
 }
