@@ -74,14 +74,15 @@ namespace BasicDrawTiles
                 {
                     brush = new SolidBrush(Color.FromArgb(color - 50, color, 0));
                 }
-
                 else // Default grass
                 {
                     brush = new SolidBrush(Color.FromArgb(color, 153, color));
                 }
             }
             else
+            {
                 brush = new SolidBrush(Color.FromArgb(color, color, color));
+            }
 
             g.FillRectangle(brush, Body);
             g.DrawRectangle(pen, Body);

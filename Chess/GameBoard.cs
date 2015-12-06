@@ -9,7 +9,7 @@ namespace BasicDrawTiles
 {
     class GameBoard
     {
-        int gSize;// Graphical size on tiles
+        int gSize; // Graphical size on tiles
 
         private int nrOfChunks;
         public int Chunks
@@ -26,7 +26,7 @@ namespace BasicDrawTiles
         }
         private Map map;
 
-        public int Quads { get; private set; }// Number of tiles per chunk - quadratic set, e.g. 32x32
+        public int Quads { get; private set; } // Number of tiles per chunk - quadratic set, e.g. 32x32
 
         public GameBoard(int size)
         {
